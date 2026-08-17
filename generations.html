@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Поколения и родословен анализ на новото кучило в развъдник Pinscher Land - родители, интерактивно дърво и ключови профили.">
+    <meta property="og:title" content="Поколения и Родословие | Pinscher Land">
+    <meta property="og:description" content="Поколения и родословен анализ на новото кучило в развъдник Pinscher Land - родители, интерактивно дърво и ключови профили.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pinscher.land">
+    <meta property="og:image" content="images/hero-bg.jpg">
+    <title>Поколения и Родословие | Pinscher Land</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Стилизация за акордеони, филтри и родословно дърво */
+        .accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; }
+        .accordion-content.open { max-height: 300px; padding-top: 15px; }
+        .accordion-arrow { transition: transform 0.3s ease; }
+        .accordion-arrow.open { transform: rotate(180deg); }
+        
+        .filter-tabs { display: flex; gap: 10px; justify-content: center; margin-bottom: 30px; flex-wrap: wrap; }
+        .filter-btn { background: #222; color: #fff; border: 1px solid rgba(183, 138, 68, 0.3); padding: 8px 20px; border-radius: 30px; cursor: pointer; transition: var(--transition); }
+        .filter-btn.active, .filter-btn:hover { background: var(--primary-color); border-color: var(--primary-color); color: #111; }
+        
+        .dog-card-item { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; margin-bottom: 15px; overflow: hidden; transition: var(--transition); }
+        .dog-card-header { padding: 15px 20px; display: flex; align-items: center; gap: 15px; cursor: pointer; background: #fafafa; }
+        .dog-avatar { width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; background: #222; color: #fff; position: relative; }
+        .dog-avatar.champion { border: 2px solid var(--primary-color); }
+        .dog-avatar.memorial { background: #000; }
+        .dog-card-body { padding: 0 20px; max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; background: #fff; }
+        .dog-card-body.open { max-height: 400px; padding: 20px; border-top: 1px solid #eee; }
+        
+        .badge-tag { display: inline-block; background: rgba(183, 138, 68, 0.15); color: var(--primary-color); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; margin: 2px; font-weight: 500; }
+        
+        /* Визуално родословно дърво */
+        .pedigree-tree-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #eaeaea;
+        }
+        .tree-header {
+            text-align: center;
+            margin-bottom: 25px;
+            width: 100%;
+        }
+        .tree-header h3 {
+            font-family: var(--font-heading, sans-serif);
+            font-size: 1.3rem;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+        .tree-header p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .ctrl-btn {
+            background: #222;
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+        .ctrl-btn:hover {
+            background: var(--primary-color, #b78a44);
+            color: #111;
+        }
+        
+        .pedigree-generation-title {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #888;
+            margin-bottom: 12px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .pedigree-level {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            width: 100%;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .pedigree-node {
+            background: #fafafa;
+            border: 1px solid #e5e5e5;
+            border-left: 4px solid var(--primary-color, #b78a44);
+            padding: 16px 24px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            text-align: center;
+            min-width: 260px;
+            transition: all 0.3s ease;
+        }
+        .pedigree-node:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(183,138,68,0.12);
+            border-color: var(--primary-color, #b78a44);
+            background: #fff;
+        }
+        .pedigree-node .node-tag {
+            font-size: 0.7rem;
+            color: var(--primary-color, #b78a44);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 4px;
+            display: block;
+            letter-spacing: 1px;
+        }
+        .pedigree-node .node-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #1a1a1a;
+            margin-bottom: 4px;
+            font-family: var(--font-heading, sans-serif);
+        }
+        .pedigree-node .node-desc {
+            font-size: 0.85rem;
+            color: #666;
+        }
+        .pedigree-node.highlight-node {
+            background: rgba(183,138,68,0.04);
+            border-color: var(--primary-color, #b78a44);
+        }
+        .pedigree-node.litter-node {
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+            color: #fff;
+            border-left: 4px solid var(--primary-color, #b78a44);
+            border-color: #444;
+            min-width: 320px;
+        }
+        .pedigree-node.litter-node .node-title {
+            color: #fff;
+            font-size: 1.1rem;
+        }
+        .pedigree-node.litter-node .node-desc {
+            color: #ddd;
+        }
+        .tree-connector {
+            width: 2px;
+            height: 25px;
+            background: var(--primary-color, #b78a44);
+            margin: 5px auto;
+            opacity: 0.5;
+        }
+        .champions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+        .champion-card { background: #fff; border: 1px solid #eaeaea; border-radius: 10px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Към съдържанието</a>
+
+<header class="header">
+    <div class="container header-container">
+        <a href="index.html" class="logo-box">
+            <div class="logo-diamond-wrapper">
+                <div class="logo-diamond"></div>
+            </div>
+            <span class="logo-text">
+                Pinscher<span>Land</span>
+            </span>
+        </a>
+        <nav class="nav" id="main-nav" aria-label="Основна навигация">
+            <ul class="nav-list">
+                <li><a href="puppies.html" class="nav-link">Кученца</a></li>
+                <li><a href="generations.html" class="nav-link active">Поколениe</a></li>
+                <li><a href="legends.html" class="nav-link">Легенди</a></li>
+                <li><a href="books.html" class="nav-link">Книги</a></li>
+                <li><a href="about.html" class="nav-link">За нас</a></li>
+                <li><a href="contacts.html" class="nav-link">Контакти</a></li>
+            </ul>
+        </nav>
+        <button type="button" class="mobile-menu-btn" aria-label="Отвори менюто" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<main id="main-content">
+
+<section class="page-header">
+    <div class="container">
+        <p>Хронология на Кучилото</p>
+        <h1>Поколение 2026</h1>
+        <div class="breadcrumbs"><a href="index.html">Начало</a> · Поколения</div>
+    </div>
+</section>
+
+<!-- Блок 2: Генетична основа (Родителите на кучилото) -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle">Генетична основа</span>
+            <h2 class="section-title">Родителите на кучилото</h2>
+            <div class="title-underline center"></div>
+        </div>
+
+        <div class="grid fade-up">
+            <!-- Баща -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Баща ♂</span>
+                    <img src="images/generations/kimon-von-masterhof.jpg" alt="Kimon Von Masterhof" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/42342" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Kimon, Von Masterhof</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-male">Мъжки</span>
+                        <span class="badge badge-gold">Племенен баща</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2016 · Държава: България</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Таня Гетова „Von T & Ia“<br>
+                        <strong>Собственик:</strong> Таня Гетова „Von T & Ia“<br>
+                        <strong>Родословие:</strong> Баща: Kimon Chernaya Liniya (Украйна 2010) | Майка: Yota Von T & Ia (България 2010)
+                    </p>
+                </div>
+            </article>
+
+            <!-- Майка -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Майка ♀</span>
+                    <img src="images/generations/trenertg-avatares-el-oso-von-t&ia.jpg" alt="El Oso Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/ru/dog/40929" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">El Oso, TrenerTG Avatares Von T & Ia</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-female">Женска</span>
+                        <span class="badge badge-gold">Шампион</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCH BG</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Таня Гетова „Von T & Ia“<br>
+                        <strong>Собственик:</strong> Таня Гетова „Von T & Ia“<br>
+                        <strong>Родословие:</strong> Баща: Tango Von Masterhof (Сърбия 2022) | Майка: B Wolf Von T & Ia (България 2019)
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 3: Родословно Дърво -->
+<section class="section">
+    <div class="container">
+        <div class="text-center fade-up" style="margin-bottom: 40px;">
+            <span class="section-subtitle">Родословно дърво</span>
+            <h2 class="section-title">Pinscher Land · Кучило (24.07.2026)</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto">Проследяване на ключовите предци, изграждащи шампионския характер. Един поглед към основните моменти, които оформиха Pinscher Land.</p>
+        </div>
+
+        <div class="pedigree-tree-wrapper fade-up">
+            <div class="tree-header">
+                <h3></h3>
+                <p>Интерактивно семейно дърво за новото кучило (24.07.2026)</p>
+                <div class="controls">
+                    <button class="ctrl-btn" onclick="zoomIn()" title="Увеличи">+</button>
+                    <button class="ctrl-btn" onclick="zoomOut()" title="Намали">-</button>
+                    <button class="ctrl-btn" onclick="resetView()" title="Центрирай">⟲</button>
+                </div>
+            </div>
+
+            <!-- Ред 1: Прародители -->
+            <div class="pedigree-generation-title">Прародители и предци</div>
+            <div class="pedigree-level">
+                <div class="pedigree-node">
+                    <span class="node-tag">🧬 Дядо</span>
+                    <div class="node-title">👑 Kimon Chernaya Liniya</div>
+                    <div class="node-desc">Година: 2010 · Украйна<br>13 международни титли</div>
+                </div>
+                <div class="pedigree-node">
+                    <span class="node-tag">🧬 Баба</span>
+                    <div class="node-title">♀ Yota Von T & Ia</div>
+                    <div class="node-desc">Година: 2010 · България<br>Развъдник: Von T & Ia</div>
+                </div>
+                <div class="pedigree-node">
+                    <span class="node-tag">🧬 Дядо</span>
+                    <div class="node-title">🏆 Tango Von Masterhof</div>
+                    <div class="node-desc">Година: 2022 · Сърбия<br>Титли: JCH, CH. SRB</div>
+                </div>
+                <div class="pedigree-node">
+                    <span class="node-tag">🧬 Баба</span>
+                    <div class="node-title">♀ B Wolf Von T & Ia</div>
+                    <div class="node-desc">Година: 2019 · България<br>Развъдник: Von T & Ia</div>
+                </div>
+            </div>
+
+            <div class="tree-connector"></div>
+
+            <!-- Ред 2: Родители -->
+            <div class="pedigree-generation-title">Родители на кученцата</div>
+            <div class="pedigree-level">
+                <div class="pedigree-node" style="width: 320px;">
+                    <span class="node-tag">♂ Баща</span>
+                    <div class="node-title">🐾 Kimon Von Masterhof</div>
+                    <div class="node-desc">Година: 2016 · България<br>Собственик: Таня Гетова (Von T & Ia)</div>
+                </div>
+                <div class="pedigree-node" style="width: 320px;">
+                    <span class="node-tag">♀ Майка</span>
+                    <div class="node-title">🐾 TrenerTG Avatares El Oso</div>
+                    <div class="node-desc">Година: 2024 · България · JCH BG<br>Собственик: Таня Гетова (Von T & Ia)</div>
+                </div>
+            </div>
+
+            <div class="tree-connector"></div>
+
+            <!-- Ред 3: Ново кучило -->
+            <div class="pedigree-generation-title">Актуално поколение</div>
+            <div class="pedigree-level">
+                <div class="pedigree-node litter-node">
+                    <span class="node-tag" style="color: var(--primary-color);">★ Актуално кучило ★</span>
+                    <div class="node-title">🐾 Нови кученца</div>
+                    <div class="node-desc">
+                        <strong>Дата на раждане:</strong> 24.07.2026 г.<br>
+                        <strong>Общ брой:</strong> 7 кученца (2 свободни ♀)<br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center" style="margin-top: 40px;">
+            <a href="puppies.html" class="btn btn-primary">Вижте всички кученца</a>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 4: Подробни профили (Dog Profiles с динамични табове и акордеони) -->
+<section class="section bg-light" style="padding: 80px 0;">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle">Подробни профили</span>
+            <h2 class="section-title">Ключови кучета от линията</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto" style="margin-bottom: 30px;">10 кучета, формиращи генетичната основа на развъдника. Всеки профил съдържа родословие и шампионски титли.</p>
+        </div>
+
+        <!-- Табове за филтриране -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterDogs('all', this)">Всички (10)</button>
+            <button class="filter-btn" onclick="filterDogs('champions', this)">🏆 Шампиони</button>
+            <button class="filter-btn" onclick="filterDogs('pedigree', this)">📜 Родословие</button>
+        </div>
+
+        <!-- Контейнер за динамичен рендеринг на кучетата -->
+        <div id="dogs-container" style="max-width: 800px; margin: 0 auto; margin-bottom: 50px;"></div>
+
+        <!-- Акценти (Grid 3 колони) -->
+        <div class="grid fade-up" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+            <div class="champion-card" style="background: #fff; border: 1px solid #eaeaea; border-radius: 10px; padding: 25px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                <div style="font-size: 2rem; margin-bottom: 12px;">🧬</div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #111;">Силна фундаментна линия</h3>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">Родословието се основава на изключително успешни производители като Kimon Chernaya Liniya и Joker Show Lucky L. Max.</p>
+            </div>
+            <div class="champion-card" style="background: #fff; border: 1px solid #eaeaea; border-radius: 10px; padding: 25px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                <div style="font-size: 2rem; margin-bottom: 12px;">🏆</div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #111;">Множество шампионски титли</h3>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">Кучетата от линията имат титли от България, Сърбия, Македония, Гърция, Турция, Украйна и още много страни.</p>
+            </div>
+            <div class="champion-card" style="background: #fff; border: 1px solid #eaeaea; border-radius: 10px; padding: 25px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.03);">
+                <div style="font-size: 2rem; margin-bottom: 12px;">🤝</div>
+                <h3 style="font-size: 1.1rem; margin-bottom: 8px; color: #111;">Международно сътрудничество</h3>
+                <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">Успешно се комбинират украински, сръбски и български линии за оптимална генетика.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 5: Свържете се с нас (CTA) -->
+<section class="cta">
+    <div class="container fade-up">
+        <h2>Резервирайте своето кученце</h2>
+        <p>Свободни са 2 женски кученца от актуалното кучило 2026. Свържете се с нас за подробности и лична среща.</p>
+        <a href="contacts.html" class="btn btn-primary">Свържете се сега</a>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <a href="index.html" class="footer-logo">Pinscher<span>Land</span></a>
+                <p>Професионален развъдник за миниатюрни пинчери и немски овчарки VON T&amp;IA · FCI 49/99. Създаден с дълбока страст и научна прецизност от д-р Таня Гетова.</p>
+            </div>
+            <div>
+                <h4>Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="puppies.html">Кученца</a></li>
+                    <li><a href="generations.html">Поколениe</a></li>
+                    <li><a href="legends.html">Легенди</a></li>
+                    <li><a href="books.html">Книги</a></li>
+                    <li><a href="about.html">За нас</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Контакти</h4>
+                <ul class="contact-list">
+                    <li><span class="ico">✉️</span><a href="mailto:trenertg@gmail.com">trenertg@gmail.com</a></li>
+                    <li><span class="ico">💬</span><a href="https://wa.me/359898734043" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Последвайте ни</h4>
+                <ul class="contact-list">
+                    <li><span class="ico">f</span><a href="https://www.facebook.com/trenertg" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><span class="ico">▶</span><a href="https://www.youtube.com/@trenertg" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Pinscher Land. Всички права запазени.</div>
+    </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+    // Акордеон логика за развъдниците и списъка с кучета
+    function toggleDogCard(header) {
+        const content = header.nextElementSibling;
+        const arrow = header.querySelector('.accordion-arrow');
+        content.classList.toggle('open');
+        arrow.classList.toggle('open');
+    }
+
+    // Масив с 10 кучета за Блок 4
+    const dogsData = [
+        { name: "Kimon, Chernaya Liniya", role: "Основател", gender: "male", isChampion: true, titles: ["CH AZE", "CH BUL", "CH SRB", "CH MKD"], pedigree: { sire: "Joker Show Evro Style", dam: "Dusha Moya Tiara" }, details: { dob: "2010", color: "Черно-подпалено", country: "Украйна" }, breeder: "Людмила Городиская", owner: "Таня Гетова" },
+        { name: "Image, Chernaya Liniya", role: "Основателка", gender: "female", isChampion: true, titles: ["Inter CH"], pedigree: { sire: "Boston Chernaya Liniya", dam: "Jaqeline Pilawa" }, details: { dob: "2010", color: "Черно-подпалено", country: "Украйна" }, breeder: "Людмила Городиская", owner: "Таня Гетова" },
+        { name: "Kimon, Von Masterhof", role: "Племенен баща", gender: "male", isChampion: false, titles: [], pedigree: { sire: "Kimon Chernaya Liniya", dam: "Yota Von T & Ia" }, details: { dob: "2016", color: "Черно-подпалено", country: "България" }, breeder: "Таня Гетова", owner: "Таня Гетова" },
+        { name: "El Oso, TrenerTG Avatares Von T & Ia", role: "Майка на котилото", gender: "female", isChampion: true, titles: ["JCH BG"], pedigree: { sire: "Tango Von Masterhof", dam: "B Wolf Von T & Ia" }, details: { dob: "2024", color: "Черно-подпалено", country: "България" }, breeder: "Таня Гетова", owner: "Таня Гетова" },
+        { name: "Tango, Von Masterhof", role: "Шампион", gender: "male", isChampion: true, titles: ["CH. SRB", "JCH SRB"], pedigree: { sire: "Kimon Chernaya Liniya", dam: "Lina Von Masterhof" }, details: { dob: "2022", color: "Черно-подпалено", country: "Сърбия" }, breeder: "Rade Vesic", owner: "Боян Петков & Ани Петкова" },
+        { name: "Amore, TrenerTG Avatares Von T & Ia", role: "Шампион", gender: "male", isChampion: true, titles: ["CH MK", "JCH BG"], pedigree: { sire: "Tango Von Masterhof", dam: "B Wolf Von T & Ia" }, details: { dob: "2024", color: "Черно-подпалено", country: "България" }, breeder: "Таня Гетова", owner: "Десислава Кръстева" },
+        { name: "Brilliantin, TrenerTG Avatares", role: "Млад талант", gender: "male", isChampion: false, titles: ["3-то място Int. Bologna"], pedigree: { sire: "Kimon Von Masterhof", dam: "El Oso" }, details: { dob: "2026", color: "Черно-подпалено", country: "България" }, breeder: "Таня Гетова", owner: "Таня Гетова" },
+        { name: "Joker Show Lucky L. Max", role: "Легендарен прародител", gender: "male", isChampion: true, titles: ["WW", "Multi-Ch"], isInMemoriam: true, pedigree: { sire: "Sorita's Jim Jump For Joy", dam: "Joker Show Ataka" }, details: { dob: "2005", color: "Черно-подпалено", country: "Русия" }, breeder: "Оксана Быстрякова", owner: "Rade Vesic" },
+        { name: "Samsson Von Masterhof", role: "Шампион", gender: "male", isChampion: true, titles: ["SRB Ch", "JCH MK"], pedigree: { sire: "Master Mishko Von Masterhof", dam: "Tarra Von Masterhof" }, details: { dob: "2022", color: "Черно-подпалено", country: "Сърбия" }, breeder: "Rade Vesic", owner: "Таня Гетова" },
+        { name: "Barbarella Brilliant Von T & Ia", role: "Международен шампион", gender: "female", isChampion: true, titles: ["NO CH", "PL CH", "RUS CH", "SRB CH"], pedigree: { sire: "Joker Show Lucky L. Max", dam: "Image Chernaya Liniya" }, details: { dob: "2012", color: "Черно-подпалено", country: "България" }, breeder: "Таня Гетова", owner: "Vita Ramanovich" }
+    ];
+
+    function renderDogs(filter = 'all') {
+        const container = document.getElementById('dogs-container');
+        if (!container) return;
+        container.innerHTML = '';
+
+        let filtered = dogsData;
+        if (filter === 'champions') {
+            filtered = dogsData.filter(d => d.isChampion || d.titles.length > 0);
+        } else if (filter === 'pedigree') {
+            filtered = dogsData.filter(d => d.pedigree && d.pedigree.sire !== 'Unknown');
+        }
+
+        filtered.forEach((dog) => {
+            let icon = dog.gender === 'female' ? '♀' : '♂';
+            if (dog.isInMemoriam) icon = '🕊️';
+
+            let avatarClass = 'dog-avatar';
+            if (dog.isChampion) avatarClass += ' champion';
+            if (dog.isInMemoriam) avatarClass += ' memorial';
+
+            let badgesHTML = dog.titles.map(t => `<span class="badge-tag">${t}</span>`).join(' ');
+            if (badgesHTML === '') badgesHTML = '<span style="color:#888; font-size:0.85rem;">Няма въведени титли</span>';
+
+            const card = document.createElement('div');
+            card.className = 'dog-card-item';
+            card.innerHTML = `
+                <div class="dog-card-header accordion-header" onclick="toggleDogCard(this)">
+                    <div style="display:flex; align-items:center; gap:15px;">
+                        <div class="${avatarClass}">${icon}</div>
+                        <div>
+                            <h4 style="margin:0; font-size:1rem; color:#111;">${dog.name}</h4>
+                            <span style="font-size:0.8rem; color:#666;">${dog.role || ''} ${dog.titles.length > 0 ? '· ' + dog.titles.length + ' титли' : ''}</span>
+                        </div>
+                    </div>
+                    <div class="accordion-arrow">▼</div>
+                </div>
+                <div class="accordion-content dog-card-body">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; font-size: 0.9rem;">
+                        <p><strong>Дата на раждане:</strong> ${dog.details.dob}</p>
+                        <p><strong>Пол:</strong> ${dog.gender === 'female' ? 'Женска' : 'Мъжки'}</p>
+                        <p><strong>Цвят:</strong> ${dog.details.color}</p>
+                        <p><strong>Държава:</strong> ${dog.details.country}</p>
+                    </div>
+                    <div style="margin-bottom: 12px;">
+                        <strong>Титли:</strong><br>${badgesHTML}
+                    </div>
+                    <div style="margin-bottom: 12px; font-size: 0.9rem;">
+                        <strong>Родословие:</strong> Баща: ${dog.pedigree.sire} | Майка: ${dog.pedigree.dam}
+                    </div>
+                    <div style="font-size: 0.85rem; color: #555; border-top: 1px solid #eee; padding-top: 8px;">
+                        Развъдчик: ${dog.breeder} · Собственик: ${dog.owner}
+                    </div>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    function filterDogs(type, btn) {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderDogs(type);
+    }
+
+    // Функции за дървото (zoom / reset)
+    let currentScale = 1;
+    function zoomIn() {
+        currentScale += 0.1;
+        const wrapper = document.querySelector('.pedigree-tree-wrapper');
+        if (wrapper) wrapper.style.transform = `scale(${currentScale})`;
+    }
+    function zoomOut() {
+        if (currentScale > 0.6) currentScale -= 0.1;
+        const wrapper = document.querySelector('.pedigree-tree-wrapper');
+        if (wrapper) wrapper.style.transform = `scale(${currentScale})`;
+    }
+    function resetView() {
+        currentScale = 1;
+        const wrapper = document.querySelector('.pedigree-tree-wrapper');
+        if (wrapper) wrapper.style.transform = `scale(1)`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderDogs('all');
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="За Pinscher Land - историята, философията и екипът зад професионалния развъдник за миниатюрни пинчери VON T&IA FCI 49/99.">
+    <title>За нас | Pinscher Land</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Стилизация за акордеони и компоненти */
+        .accordion-header { cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, padding 0.3s ease; }
+        .accordion-content.open { max-height: 300px; padding-top: 15px; }
+        .accordion-arrow { transition: transform 0.3s ease; }
+        .accordion-arrow.open { transform: rotate(180deg); }
+        
+        .dog-card-item { background: #fff; border: 1px solid #e5e5e5; border-radius: 12px; margin-bottom: 15px; overflow: hidden; transition: var(--transition); }
+        .dog-card-header { padding: 15px 20px; display: flex; align-items: center; gap: 15px; cursor: pointer; background: #fafafa; }
+        .badge-tag { display: inline-block; background: rgba(183, 138, 68, 0.15); color: var(--primary-color); padding: 4px 10px; border-radius: 6px; font-size: 0.85rem; margin: 2px; font-weight: 500; }
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Към съдържанието</a>
+
+<header class="header">
+    <div class="container header-container">
+        <a href="index.html" class="logo-box">
+            <div class="logo-diamond-wrapper">
+                <div class="logo-diamond"></div>
+            </div>
+            <span class="logo-text">
+                Pinscher<span>Land</span>
+            </span>
+        </a>
+        <nav class="nav" id="main-nav" aria-label="Основна навигация">
+            <ul class="nav-list">
+                <li><a href="puppies.html" class="nav-link">Кученца</a></li>
+                <li><a href="generations.html" class="nav-link">Поколениe</a></li>
+                <li><a href="legends.html" class="nav-link">Легенди</a></li>
+                <li><a href="books.html" class="nav-link">Книги</a></li>
+                <li><a href="about.html" class="nav-link active">За нас</a></li>
+                <li><a href="contacts.html" class="nav-link">Контакти</a></li>
+            </ul>
+        </nav>
+        <button type="button" class="mobile-menu-btn" aria-label="Отвори менюто" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+    </div>
+</header>
+
+<main id="main-content">
+
+<section class="page-header">
+    <div class="container">
+        <p>Нашата история</p>
+        <h1>За Pinscher Land</h1>
+        <div class="breadcrumbs"><a href="index.html">Начало</a> · За нас</div>
+    </div>
+</section>
+
+<!-- Блок 1: Кои сме ние -->
+<section class="section">
+    <div class="container">
+        <div class="about-container">
+            <div class="about-text fade-up">
+                <span class="section-subtitle">Кои сме ние</span>
+                <h2 class="section-title">Развъдник и Партньори</h2>
+                <div class="title-underline"></div>
+                <p>Pinscher Land е повече от развъдник – това е философия за отговорно отглеждане на кучета. Развъдникът VON T&amp;IA (FCI 49/99) е основан от <strong>Dr. Tania Getova</strong> с една ясна цел: да съхрани и усъвършенства породата миниатюрен пинчер в България и по света.</p>
+                <p>За над десетилетие ние изградихме кръвна линия, която обединява перфектния екстериор по FCI стандарта, желязно здраве и жив, стабилен характер. Всяко наше куче е доказателство, че страстта и науката могат да работят заедно.</p>
+                <p>Работим в тясно сътрудничество с ветеринарни специалисти, международни съдии и водещи развъдници в Европа, за да гарантираме, че всяко ново поколение е стъпка напред.</p>
+            </div>
+            <div class="about-image fade-up">
+                <img src="images/about-portrait.jpg" alt="Dr. Tania Getova and champion Miniature Pinscher" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 2: Нашите ценности -->
+<section class="section">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle">Нашите ценности</span>
+            <h2 class="section-title">Стандарти без компромис</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto">Четири принципа, които водят всяко наше решение – от селекцията на родителите до предаването на кученцето в новия дом.</p>
+        </div>
+        <div class="values-grid fade-up">
+            <div class="value-item">
+                <div class="value-icon">🧬</div>
+                <h3>Генетика</h3>
+                <p>Селекция на родители с доказани кръвни линии, DNA тестове и предварителни здравни изследвания.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🏥</div>
+                <h3>Здраве</h3>
+                <p>100% ветеринарни прегледи, пълна ваксинация, обезпаразитяване и микрочип за всяко кученце.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">🏆</div>
+                <h3>Екстериор</h3>
+                <p>Строго придържане към FCI стандарта. Кучета, готови за ринга и живот на диван.</p>
+            </div>
+            <div class="value-item">
+                <div class="value-icon">❤️</div>
+                <h3>Темперамент</h3>
+                <p>Ранна социализация в домашна среда – самоуверени, балансирани и любящи кучета за цял живот.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 3: Хронология на успеха -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle">PinscherLand</span>
+            <h2 class="section-title">Хронология на успеха</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto">Един поглед към ключовите моменти и важните етапи, които изградиха историята на Pinscher Land.</p>
+        </div>
+
+        <div class="timeline fade-up">
+            <div class="timeline-item">
+                <div class="timeline-year">1999</div>
+                <h3>Раждането на VON T&amp;IA</h3>
+                <p>Dr. Tania Getova получава своята FCI регистрация 49/99 – началото на официалната развъдническа дейност.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2010</div>
+                <h3>Kimon &amp; Kennel Chernaya Liniya</h3>
+                <p>Пристигат кучетата-основатели, върху които се гради днешната кръвна линия. Първите шампионски титли.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2015</div>
+                <h3>Международно признание</h3>
+                <p>Кучета от развъдника печелят BIS и BOB на международни изложби. Партньорства с водещи европейски развъдници.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2020</div>
+                <h3>25 шампионски титли</h3>
+                <p>Празнуваме преминаването на 25 шампионски титли и над 100 предадени щастливи кученца.</p>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-year">2026</div>
+                <h3>Ново поколение</h3>
+                <p>Раждането на кучилото от Trenertg Avatares El Oso Von T & Ia и Kimon Von Masterhof – 7 нови звезди за международните рингове.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 4: Нашите партньори (Развъдници) -->
+<section class="section bg-light" style="background: #f9f9f9;">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle">Нашите партньори</span>
+            <h2 class="section-title">Развъдници</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto" style="margin-bottom: 40px;">Утвърдени развъдници от България, Сърбия, Украйна и Русия, обединени от страстта към породата Миниатюрен Пинчер.</p>
+        </div>
+
+        <div class="breeders-accordion max-w-md mx-auto" style="max-width: 700px; margin: 0 auto;">
+            <!-- VON T&IA -->
+            <div class="dog-card-item">
+                <div class="dog-card-header accordion-header" onclick="toggleAccordion(this)">
+                    <div><strong>VON T&amp;IA</strong> (🇧🇬 България · Д-р Таня Гетова)</div>
+                    <div class="accordion-arrow">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>FCI Регистрация:</strong> 49/99</p>
+                    <p><strong>Адрес:</strong> София, бул. Симеоновско шосе 165</p>
+                    <p><strong>Телефон:</strong> <a href="tel:+359898734043">+359 898 734043</a></p>
+                    <p><strong>Email:</strong> <a href="mailto:trenertg@gmail.com">trenertg@gmail.com</a></p>
+                    <p><strong>Уеб сайт:</strong> <a href="https://pinscher.land" target="_blank" rel="noopener noreferrer">https://pinscher.land</a></p>
+                </div>
+            </div>
+            <!-- Von Masterhof -->
+            <div class="dog-card-item">
+                <div class="dog-card-header accordion-header" onclick="toggleAccordion(this)">
+                    <div><strong>Von Masterhof</strong> (🇷🇸 Сърбия · Rade Vesic)</div>
+                    <div class="accordion-arrow">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>URL:</strong> <a href="https://mp.dogpedigree.net/ru/kennel/514" target="_blank" rel="noopener noreferrer">https://mp.dogpedigree.net/ru/kennel/514</a></p>
+                </div>
+            </div>
+            <!-- La Vita Bella -->
+            <div class="dog-card-item">
+                <div class="dog-card-header accordion-header" onclick="toggleAccordion(this)">
+                    <div><strong>La Vita Bella</strong> (🇳🇴 Норвегия · Vita Ramanovich)</div>
+                    <div class="accordion-arrow">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>URL:</strong> <a href="https://mp.dogpedigree.net/ru/kennel/951" target="_blank" rel="noopener noreferrer">https://mp.dogpedigree.net/ru/kennel/951</a></p>
+                    <p><strong>Телефон:</strong> <a href="tel:+004746969933">+00 47 46969933</a></p>
+                    <p><strong>Имейл:</strong> <a href="mailto:vita211@hotmail.com">vita211@hotmail.com</a></p>
+                </div>
+            </div>
+            <!-- Joker Show -->
+            <div class="dog-card-item">
+                <div class="dog-card-header accordion-header" onclick="toggleAccordion(this)">
+                    <div><strong>Joker Show</strong> (🇷🇺 Русия · Оксана Быстрякова)</div>
+                    <div class="accordion-arrow">▼</div>
+                </div>
+                <div class="accordion-content">
+                    <p><strong>URL:</strong> <a href="https://mp.dogpedigree.net/ru/kennel/111" target="_blank" rel="noopener noreferrer">https://mp.dogpedigree.net/ru/kennel/111</a></p>
+                    <p><strong>Телефон:</strong> <a href="tel:+79267329373">+7 926 7329373</a></p>
+                    <p><strong>Имейл:</strong> <a href="mailto:kennel@jokershow.ru">kennel@jokershow.ru</a></p>
+                    <p><strong>Уеб сайт:</strong> <a href="https://jokershow.ru" target="_blank" rel="noopener noreferrer">https://jokershow.ru</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 5: Посетете нашия развъдник -->
+<section class="cta">
+    <div class="container fade-up">
+        <h2>Посетете нашия развъдник</h2>
+        <p>Организираме индивидуални срещи по предварителна уговорка. Заповядайте да се запознаете с нашите кучета лично.</p>
+        <a href="contacts.html" class="btn btn-primary">Уговорете посещение</a>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <a href="index.html" class="footer-logo">Pinscher<span>Land</span></a>
+                <p>Професионален развъдник за миниатюрни пинчери и немски овчарки VON T&amp;IA · FCI 49/99. Нашата страст са здравите, щастливи и красиви кучета.</p>
+            </div>
+            <div>
+                <h4>Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="puppies.html">Кученца</a></li>
+                    <li><a href="generations.html">Поколениe</a></li>
+                    <li><a href="legends.html">Легенди</a></li>
+                    <li><a href="books.html">Книги</a></li>
+                    <li><a href="about.html">За нас</a></li>
+                    <li><a href="contacts.html">Контакти</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Контакти</h4>
+                <ul class="contact-list">
+                    <li><span class="ico">✉️</span><a href="mailto:trenertg@gmail.com">trenertg@gmail.com</a></li>
+                    <li><span class="ico">💬</span><a href="https://wa.me/359898734043" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    <li><span class="ico">👩‍⚕️</span><a href="https://www.facebook.com/tania.getova" target="_blank" rel="noopener noreferrer">Dr. Tania Getova</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Последвайте ни</h4>
+                <ul class="contact-list">
+                    <li><span class="ico">f</span><a href="https://www.facebook.com/trenertg" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><span class="ico">▶</span><a href="https://www.youtube.com/@trenertg" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Pinscher Land. Всички права запазени. · <a href="https://trenertg.narod.ru/" target="_blank" rel="noopener noreferrer">POWERED BY TRENERTG</a></div>
+    </div>
+</footer>
+<script src="js/main.js"></script>
+<script>
+    function toggleAccordion(header) {
+        const content = header.nextElementSibling;
+        const arrow = header.querySelector('.accordion-arrow');
+        content.classList.toggle('open');
+        arrow.classList.toggle('open');
+    }
+</script>
+</body>
+</html>
