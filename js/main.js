@@ -108,3 +108,32 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Проверява какъв език е запазен в браузъра (по подразбиране е 'bg')
+    const savedLang = localStorage.getItem('site_lang') || 'bg';
+    
+    if (savedLang === 'en') {
+        applyEnglishTranslations(); // Извиква функцията ви за английски език
+    }
+});
+
+// Функция, която се задейства, когато потребителят кликне на бутона за смяна на езика
+function setSiteLanguage(lang) {
+    localStorage.setItem('site_lang', lang);
+    
+    if (lang === 'en') {
+        applyEnglishTranslations();
+    } else {
+        localStorage.setItem('site_lang', 'bg');
+        location.reload(); // Презарежда за връщане към български по подразбиране
+    }
+}
+
+// Примерна функция за превод (ако ползвате data-атрибути или скрит речник)
+function applyEnglishTranslations() {
+    // Тук слагате вашата логика за смяна на текстовете или класовете по страниците
+    document.querySelectorAll('[data-en]').forEach(el => {
+        el.setAttribute('data-bg', el.innerText);
+        el.innerText = el.getAttribute('data-en');
+    });
+}

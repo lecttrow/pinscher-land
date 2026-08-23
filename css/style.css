@@ -1180,3 +1180,29 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-color);
     font-weight: 400;
 }
+/* ---------- Language Switcher Styles ---------- */
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 20px;
+}
+.lang-btn {
+    background: none;
+    border: none;
+    color: var(--text-light, #666);
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 4px 6px;
+    transition: var(--transition, all 0.3s ease);
+}
+.lang-btn.active, .lang-btn:hover {
+    color: var(--primary-color, #b78a44);
+}
+@media (max-width: 768px) {
+    .lang-switcher {
+        margin-left: 0;
+        margin-top: 15px;
+    }
+}
