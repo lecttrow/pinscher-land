@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Легенди на Pinscher Land - Шампиони линия Masterhof и Шампиони линия Von T & Ia.">
+    <title>Легенди | Pinscher Land</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .lang-switcher { display: flex; align-items: center; gap: 6px; margin-left: 20px; }
+.lang-btn { background: none; border: none; color: var(--text-light); cursor: pointer; font-weight: 600; font-size: 0.85rem; padding: 4px 6px; transition: var(--transition); }
+.lang-btn.active, .lang-btn:hover { color: var(--primary-color); }
+@media (max-width: 768px) {
+    .lang-switcher { margin-left: 0; margin-top: 15px; }
+}
+    </style>
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Към съдържанието</a>
+
+<header class="header">
+    <div class="container header-container">
+        <a href="index.html" class="logo-box">
+            <div class="logo-diamond-wrapper">
+                <div class="logo-diamond"></div>
+            </div>
+            <span class="logo-text">
+                Pinscher<span>Land</span>
+            </span>
+        </a>
+        <div style="display: flex; align-items: center;">
+            <nav class="nav" id="main-nav" aria-label="Основна навигация">
+                <ul class="nav-list">
+                    <li><a href="puppies.html" class="nav-link" data-i18n="nav_puppies">Кученца</a></li>
+                    <li><a href="generations.html" class="nav-link" data-i18n="nav_generations">Поколениe</a></li>
+                    <li><a href="legends.html" class="nav-link active" data-i18n="nav_legends">Легенди</a></li>
+                    <li><a href="books.html" class="nav-link" data-i18n="nav_books">Книги</a></li>
+                    <li><a href="about.html" class="nav-link" data-i18n="nav_about">За нас</a></li>
+                    <li><a href="contacts.html" class="nav-link" data-i18n="nav_contacts">Контакти</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switcher">
+            <button onclick="setLanguage('bg')" class="lang-btn active">BG</button>
+             <span style="color: var(--primary-color);">/</span>
+            <button onclick="setLanguage('en')" class="lang-btn">EN</button>
+            </div>
+            <button type="button" class="mobile-menu-btn" aria-label="Отвори менюто" aria-expanded="false" aria-controls="main-nav"><span></span><span></span><span></span></button>
+        </div>
+    </div>
+</header>
+
+<main id="main-content">
+
+<section class="page-header">
+    <div class="container">
+        <p data-i18n="hall_fame">Hall of Fame</p>
+        <h1 data-i18n="legends_title">Легенди на Pinscher Land</h1>
+        <div class="breadcrumbs"><a href="index.html" data-i18n="nav_home">Начало</a> · <span data-i18n="nav_legends">Легенди</span></div>
+    </div>
+</section>
+
+<!-- Блок 1: Шампиони линия Masterhof -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle" data-i18n="masterhof_sub">Нашите легенди</span>
+            <h2 class="section-title" data-i18n="masterhof_title">Шампиони линия Masterhof</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto" data-i18n="masterhof_desc">Кооперация с Rade Vesic (Kennel Masterhof) и селекционен период (2020–2023 г.), ръководен от д-р Таня Гетова преди официалното членство в международни асоциации под FCI в България.</p>
+        </div>
+
+        <div class="grid fade-up">
+            <!-- Tango, Von Masterhof -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Champion ♂</span>
+                    <img src="images/generations/tango-von-masterhof.jpg" alt="Tango, Von Masterhof" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/35001" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Tango, Von Masterhof</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-male">Мъжки</span>
+                        <span class="badge badge-gold">Шампион</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCH, J.CH. SRB, CH. SRB.</li>
+                        <li>Година: 2022 · Държава: Сърбия</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Rade Vesic «Von Masterhof»<br>
+                        <strong>Собственик:</strong> Боян Петков &amp; Ани Петкова<br>
+                        <strong>Родословие:</strong> Баща: Kimon Chernaya Liniya (Украйна 2010) | Майка: Lina Von Masterhof (Сърбия 2017)
+                    </p>
+                </div>
+            </article>
+
+            <!-- Kimon, Von Masterhof -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Candidate ♂</span>
+                    <img src="images/generations/kimon-von-masterhof.jpg" alt="Kimon, Von Masterhof" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/42342" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Kimon, Von Masterhof</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-male">Мъжки</span>
+                        <span class="badge badge-gold">Кандидат</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2016 · Държава: България</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Собственик:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Родословие:</strong> Баща: Kimon Chernaya Liniya (Украйна 2010) | Майка: Yota Von T &amp; Ia (България 2010)
+                    </p>
+                </div>
+            </article>
+
+            <!-- Samsson (Сашко), Von Masterhof -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Champion ♂</span>
+                    <img src="images/generations/samsson-von-masterhof.jpg" alt="Samsson (Сашко), Von Masterhof" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/ru/dog/35007" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Samsson (Сашко), Von Masterhof</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-male">Мъжки</span>
+                        <span class="badge badge-gold">Шампион</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: SRB Ch, JCH MK</li>
+                        <li>Година: 2022 · Държава: Сърбия</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Rade Vesic «Von Masterhof»<br>
+                        <strong>Собственик:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Родословие:</strong> Баща: Master Mishko Von Masterhof (Сърбия 2015) | Майка: Tarra Von Masterhof (Сърбия 2022)
+                    </p>
+                </div>
+            </article>
+
+            <!-- El Oso, TrenerTG Avatares Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Champion ♀</span>
+                    <img src="images/generations/trenertg-avatares-el-oso-von-t&ia.jpg" alt="El Oso, TrenerTG Avatares Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/ru/dog/40929" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">El Oso, TrenerTG Avatares Von T & Ia</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-female">Женска</span>
+                        <span class="badge badge-gold">Шампион</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCH BG</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Собственик:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Родословие:</strong> Баща: Tango Von Masterhof (Сърбия 2022) | Майка: B Wolf Von T &amp; Ia (България 2019)
+                    </p>
+                </div>
+            </article>
+
+            <!-- Amore, TrenerTG Avatares Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Champion ♀</span>
+                    <img src="images/generations/trenertg-avatares-amore-von-t&ia.jpg" alt="Amore, TrenerTG Avatares Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/40930" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Amore, TrenerTG Avatares Von T & Ia</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-female">Женска</span>
+                        <span class="badge badge-gold">Шампион</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCH MK, JCH BG</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Собственик:</strong> Десислава Кръстева<br>
+                        <strong>Родословие:</strong> Баща: Tango Von Masterhof (Сърбия 2022) | Майка: B Wolf Von T &amp; Ia (България 2019)
+                    </p>
+                </div>
+            </article>
+
+            <!-- Magia, TrenerTG Avatares Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Foundation ♀</span>
+                    <img src="images/generations/trenertg-avatares-magia-von-t&ia.jpg" alt="Magia, TrenerTG Avatares Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/40062" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Magia, TrenerTG Avatares Von T & Ia</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-female">Женска</span>
+                        <span class="badge badge-gold">Кандидат</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                    <p class="card-text">
+                        <strong>Развъдник:</strong> Таня Гетова «Von T &amp; Ia»<br>
+                        <strong>Собственик:</strong> Ралица Симеонова<br>
+                        <strong>Родословие:</strong> Баща: Tango Von Masterhof (Сърбия 2022) | Майка: B Wolf Von T &amp; Ia (България 2019)
+                    </p>
+                </div>
+            </article>
+
+            <!-- Von Masterhof Kennel -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Kennel</span>
+                    <img src="images/von-masterhof.jpg" alt="Von Masterhof" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <div class="card-subtitle">Сърбия · Партньорски развъдник</div>
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/ru/kennel/514" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Von Masterhof</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-gold">Rade Vesic</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Държава: 🇷🇸 Сърбия</li>
+                        <li>Собственик: Rade Vesic</li>
+                    </ul>
+                    <p class="card-text">Сръбски развъдник партньор с дългогодишна история и ключова роля в селекцията.</p>
+                </div>
+            </article>
+        </div>
+
+        <div class="text-center" style="margin-top: 50px;">
+            <a href="about.html" class="btn btn-primary" data-i18n="btn_read_history">Прочетете нашата история</a>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 2: Шампиони и линия Von T & Ia -->
+<section class="section">
+    <div class="container">
+        <div class="text-center fade-up">
+            <span class="section-subtitle" data-i18n="ring_pride">Гордостта на ринга</span>
+            <h2 class="section-title" data-i18n="von_tia_title">Шампиони линия Von T & Ia</h2>
+            <div class="title-underline center"></div>
+            <p class="section-desc max-w-md mx-auto" data-i18n="von_tia_desc">Успехи, доказани на сцена. Кучета, които със самочувствие и перфектна визия печелят признание от международни съдии.</p>
+        </div>
+
+        <div class="grid fade-up">
+            <!-- Von T & Ia Kennel -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">Kennel</span>
+                    <img src="images/von_t&ia.jpg" alt="Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <div class="card-subtitle">България · FCI 49/99</div>
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/kennel/930" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Von T & Ia · FCI 49/99</a></h3>
+                    <div class="dog-details">
+                        <span class="badge badge-gold">Д-р Таня Гетова</span>
+                    </div>
+                    <ul class="dog-titles">
+                        <li>Държава: 🇧🇬 България</li>
+                        <li>Телефон: <a href="tel:+359898734043">+359 898 734 043</a></li>
+                        <li>Имейл: <a href="mailto:trenertg@gmail.com">trenertg@gmail.com</a></li>
+                        <li>Уеб сайт: <a href="https://pinscher.land" target="_blank" rel="noopener noreferrer">https://pinscher.land</a></li>
+                    </ul>
+                    <p class="card-text"><strong>Описание:</strong> С дългогодишен опит в селекцията, здравеопазването и развъждането, развъдникът се утвърждава като еталон за качество, генетична чистота и запазване на автентичния стандарт на породите.</p>
+                </div>
+            </article>
+
+            <!-- Aranto Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/aranto-von-t&ia.jpg" alt="Aranto Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/24347" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Aranto Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge badge-gold">Шампион</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: J.CAC, 2xCAC</li>
+                        <li>Година: 2017 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- B Wolf Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/b-wolf-von-t&ia.jpg" alt="B Wolf Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/37051" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">B Wolf Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Родител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма титли</li>
+                        <li>Година: 2019 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Barbarella Brilliant Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/barbarella-brilliant-von-t&ia.jpg" alt="Barbarella Brilliant" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/13332" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Barbarella Brilliant Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge badge-gold">Интер-Шампион</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: NO CH, PL CH, RUS CH, SRB CH</li>
+                        <li>Година: 2012 - 2024 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Dundy Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/dundy-von-t&ia.jpg" alt="Dundy Von T & Ia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/17904" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Dundy Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge badge-gold">Шампион</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCh.Bulgaria, JGrandCh.Bulgaria, JCh.Balkan</li>
+                        <li>Година: 2013 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Favorite Franja Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/favorite-franja-von-t&ia.jpg" alt="Favorite Franja" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/25081" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Favorite Franja Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2013 · Държава: Полша</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Gimp Master Misha Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/gimp-master-misha-von-t&ia.jpg" alt="Gimp Master Misha" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/13331" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Gimp Master Misha Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2013 · Държава: Полша</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Golden Butterfly Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/golden-butterfly-von-t&ia.jpg" alt="Golden Butterfly" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/17330" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Golden Butterfly Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2013 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Royal Dark Solar Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/royal-dark-solar-von-t&ia.jpg" alt="Royal Dark Solar" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/17334" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Royal Dark Solar Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2015 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Royal Rihanna Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/royal-rihanna-von-t&ia.jpg" alt="Royal Rihanna" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/17331" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Royal Rihanna Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge badge-gold">Шампион</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Ch. Int., Ch. GR</li>
+                        <li>Година: 2015 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Royal Rin Tin Tin Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/royal-rin-tin-tin-von-t&ia.jpg" alt="Royal Rin Tin Tin" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/17332" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Royal Rin Tin Tin Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2015 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Royal Roy Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/royal-roy-von-t&ia.jpg" alt="Royal Roy" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/17333" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Royal Roy Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2015 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- TrenerTG Avatares Amore Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/trenertg-avatares-amore-von-t&ia.jpg" alt="Amore" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/40930" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">TrenerTG Avatares Amore Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge badge-gold">Шампион</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCH MK, JCH BG</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- TrenerTG Avatares El Oso Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/trenertg-avatares-el-oso-von-t&ia.jpg" alt="El Oso" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/40929" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">TrenerTG Avatares El Oso Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge badge-gold">Шампион</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: JCH BG</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- TrenerTG Avatares Magia Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/trenertg-avatares-magia-von-t&ia.jpg" alt="Magia" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/40062" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">TrenerTG Avatares Magia Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+
+            <!-- Yota Von T & Ia -->
+            <article class="card">
+                <div class="card-image-wrapper">
+                    <span class="card-tag">T&amp;IA</span>
+                    <img src="images/t&ia/yota-von-t&ia.jpg" alt="Yota" loading="lazy">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title"><a href="https://mp.dogpedigree.net/en/dog/23866" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">Yota Von T & Ia</a></h3>
+                    <div class="dog-details"><span class="badge">Представител</span></div>
+                    <ul class="dog-titles">
+                        <li>Титли: Няма</li>
+                        <li>Година: 2024 · Държава: България</li>
+                    </ul>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!-- Блок 3: Актуално кучило (CTA) -->
+<section class="cta">
+    <div class="container fade-up">
+        <h2 data-i18n="cta_legends_title">Искате куче с родословие, генетика и здраве?</h2>
+        <p data-i18n="cta_legends_desc">Всяко наше кученце носи в себе си кръвта на нашите шампиони. Свържете се с нас за информация относно наличните поколения.</p>
+        <a href="puppies.html" class="btn btn-primary" data-i18n="btn_view_litters">Вижте актуалното кучило</a>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-info">
+                <a href="index.html" class="footer-logo">Pinscher<span>Land</span></a>
+                <p>Професионален развъдник за миниатюрни пинчери и немски овчарки VON T&amp;IA · FCI 49/99. Нашата страст са здравите, щастливи и красиви кучета.</p>
+            </div>
+            <div>
+                <h4>Навигация</h4>
+                <ul class="footer-links">
+                    <li><a href="puppies.html" data-i18n="nav_puppies">Кученца</a></li>
+                    <li><a href="generations.html" data-i18n="nav_generations">Поколениe</a></li>
+                    <li><a href="legends.html" data-i18n="nav_legends">Легенди</a></li>
+                    <li><a href="books.html" data-i18n="nav_books">Книги</a></li>
+                    <li><a href="about.html" data-i18n="nav_about">За нас</a></li>
+                    <li><a href="contacts.html" data-i18n="nav_contacts">Контакти</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Контакти</h4>
+                <ul class="contact-list">
+                    <li><span class="ico">✉️</span><a href="mailto:trenertg@gmail.com">trenertg@gmail.com</a></li>
+                    <li><span class="ico">💬</span><a href="https://wa.me/359898734043" target="_blank" rel="noopener noreferrer">WhatsApp</a></li>
+                    <li><span class="ico">👩‍⚕️</span><a href="https://www.facebook.com/tania.getova" target="_blank" rel="noopener noreferrer">Dr. Tania Getova</a></li>
+                    <li><span class="ico">📍</span><span>Sofia 1000, Bulgaria</span></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Последвайте ни</h4>
+                <ul class="contact-list">
+                    <li><span class="ico">f</span><a href="https://www.facebook.com/trenertg" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+                    <li><span class="ico">▶</span><a href="https://www.youtube.com/@trenertg" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 Pinscher Land. Всички права запазени. · <a href="https://trenertg.narod.ru/" target="_blank" rel="noopener noreferrer">POWERED BY TRENERTG</a></div>
+    </div>
+</footer>
+
+<script src="js/main.js"></script>
+<script>
+    const translations = {
+        bg: {
+            nav_puppies: "Кученца",
+            nav_generations: "Поколениe",
+            nav_legends: "Легенди",
+            nav_books: "Книги",
+            nav_about: "За нас",
+            nav_contacts: "Контакти",
+            nav_home: "Начало",
+            hall_fame: "Hall of Fame",
+            legends_title: "Легенди на Pinscher Land",
+            masterhof_sub: "Нашите легенди",
+            masterhof_title: "Шампиони линия Masterhof",
+            masterhof_desc: "Кооперация с Rade Vesic (Kennel Masterhof) и селекционен период (2020–2023 г.), ръководен от д-р Таня Гетова преди официалното членство в международни асоциации под FCI в България.",
+            btn_read_history: "Прочетете нашата история",
+            ring_pride: "Гордостта на ринга",
+            von_tia_title: "Шампиони линия Von T & Ia",
+            von_tia_desc: "Успехи, доказани на сцена. Кучета, които със самочувствие и перфектна визия печелят признание от международни съдии.",
+            cta_legends_title: "Искате куче с родословие, генетика и здраве?",
+            cta_legends_desc: "Всяко наше кученце носи в себе си кръвта на нашите шампиони. Свържете се с нас за информация относно наличните поколения.",
+            btn_view_litters: "Вижте актуалното кучило"
+        },
+        en: {
+            nav_puppies: "Puppies",
+            nav_generations: "Generations",
+            nav_legends: "Legends",
+            nav_books: "Books",
+            nav_about: "About Us",
+            nav_contacts: "Contacts",
+            nav_home: "Home",
+            hall_fame: "Hall of Fame",
+            legends_title: "Legends of Pinscher Land",
+            masterhof_sub: "Our Legends",
+            masterhof_title: "Masterhof Line Champions",
+            masterhof_desc: "Cooperation with Rade Vesic (Kennel Masterhof) and selection period (2020–2023), led by Dr. Tanya Getova prior to official membership in international FCI associations in Bulgaria.",
+            btn_read_history: "Read Our History",
+            ring_pride: "Pride of the Ring",
+            von_tia_title: "Von T & Ia Line Champions",
+            von_tia_desc: "Success proven on stage. Dogs that win recognition from international judges with confidence and a perfect vision.",
+            cta_legends_title: "Want a dog with pedigree, genetics, and health?",
+            cta_legends_desc: "Every puppy of ours carries the blood of our champions. Contact us for information regarding available generations.",
+            btn_view_litters: "View Current Litter"
+        }
+    };
+
+    function setLanguage(lang) {
+        localStorage.setItem('preferred_lang', lang);
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                el.innerHTML = translations[lang][key];
+            }
+        });
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedLang = localStorage.getItem('preferred_lang') || 'bg';
+        setLanguage(savedLang);
+    });
+</script>
+</body>
+</html>
